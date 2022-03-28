@@ -1,0 +1,75 @@
+
+  <div class="filter-container">
+    <mat-chip-list #chipList aria-label="Filter selection" style="max-width: 450px;" *ngIf="isMobile()==false">
+      <ng-container *ngFor="let filter of filters">
+        <mat-chip  *ngIf="filter.checked==true" (removed)="filterchange({checked:false},filter.value)" color="accent">
+          {{filter.value|uppercase}}
+            <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </ng-container>
+    </mat-chip-list>
+    <button *ngIf="isMobile()==true" (click)="triggerfilterMenu()" mat-fab><mat-icon >list</mat-icon></button>
+    <mat-form-field appearance="outline">
+      <mat-label>SORT BY</mat-label>
+      <mat-select >
+        <mat-option value="option2">PRICE (LOW TO HIGH)</mat-option>
+        <mat-option value="option2">PRICE (HIGH TO LOW)</mat-option>
+        <mat-option value="option1">NEWEST FIRST</mat-option>
+        <mat-option value="option1">OLDEST FIRST</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="products-container">
+      <div id="filters" class="invisible">
+        <mat-expansion-panel  expanded="true"  hideToggle >
+          <mat-expansion-panel-header>
+            <mat-panel-title style="display: flex;flex-direction: row;justify-content: space-between;;">
+             <span>FILTER PRODUCTS</span>
+             <mat-icon *ngIf="isMobile()==false">expand_more</mat-icon>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        <div style="display:flex;flex-direction: column;gap: .5rem;">
+          <mat-divider></mat-divider>
+        <h2>FOR</h2>
+        <mat-checkbox  [checked]="filters[0].checked"  (change)="filterchange($event,'men')">MEN</mat-checkbox>
+        <mat-checkbox   [checked]="filters[1].checked"  (change)="filterchange($event,'women')">WOMEN</mat-checkbox>
+        <mat-divider></mat-divider>
+        <h2>TYPE</h2>
+        <mat-checkbox   [checked]="filters[2].checked"  (change)="filterchange($event,'hoodie')">HOODIE</mat-checkbox>
+        <mat-checkbox   [checked]="filters[3].checked"  (change)="filterchange($event,'fleece')">FLEECE</mat-checkbox>
+        <mat-checkbox   [checked]="filters[4].checked"  (change)="filterchange($event,'tshirt')">TSHIRT</mat-checkbox>
+        <mat-checkbox    [checked]="filters[5].checked"  (change)="filterchange($event,'longsleeve')">LONG SLEEVE</mat-checkbox>
+        <mat-divider></mat-divider>
+        <h2>BRAND</h2>
+        <mat-checkbox   [checked]="filters[6].checked"  (change)="filterchange($event,'russel')">RUSSEL</mat-checkbox>
+        <mat-checkbox   [checked]="filters[7].checked"  (change)="filterchange($event,'fruitoftheloom')">FRUIT OF THE LOOM</mat-checkbox>
+        <mat-divider></mat-divider>
+        </div>
+        </mat-expansion-panel>
+      </div>
+
+
+  <div style="flex-grow:1; display: grid;grid-template-columns: repeat(auto-fit,minmax(300px,350px));align-items: baseline;gap: 1rem;justify-content:center;">
+    <mat-card *ngFor="let product of newProducts">
+      <mat-card-header>{{product.Name}}</mat-card-header>
+      <mat-card-content [routerLink]="['/product']" [queryParams]="{id:product.Id}">
+      <img class="clothing"  src="{{product.Img}}" >
+      </mat-card-content>
+      <mat-card-actions  style="display: flex;flex-direction: row;justify-content: space-between;color: black;align-items: center;"><div>{{product.Price|currency:'EUR'}}</div><button (click)="addProduct(product)" mat-button>ADD TO CART</button></mat-card-actions>
+     </mat-card>
+     <mat-card *ngFor="let product of newProducts">
+      <mat-card-header>{{product.Name}}</mat-card-header>
+      <mat-card-content [routerLink]="['/product']" [queryParams]="{id:product.Id}">
+      <img class="clothing"  src="{{product.Img}}" >
+      </mat-card-content>
+      <mat-card-actions  style="display: flex;flex-direction: row;justify-content: space-between;color: black;align-items: center;"><div>{{product.Price|currency:'EUR'}}</div><button (click)="addProduct(product)" mat-button>ADD TO CART</button></mat-card-actions>
+     </mat-card>
+     <mat-card *ngFor="let product of newProducts">
+      <mat-card-header>{{product.Name}}</mat-card-header>
+      <mat-card-content [routerLink]="['/product']" [queryParams]="{id:product.Id}">
+      <img class="clothing"  src="{{product.Img}}" >
+      </mat-card-content>
+      <mat-card-actions  style="display: flex;flex-direction: row;justify-content: space-between;color: black;align-items: center;"><div>{{product.Price|currency:'EUR'}}</div><button (click)="addProduct(product)" mat-button>ADD TO CART</button></mat-card-actions>
+     </mat-card>
+  </div>
+  </div>

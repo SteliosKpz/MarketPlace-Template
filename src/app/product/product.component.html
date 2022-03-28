@@ -1,0 +1,39 @@
+<div class="listing">
+<div class="container">
+  <img src="{{Products[product].Img}}" class="product-img">
+  <div style="display: flex;flex-direction: column;">
+  <span class="price-container"><h1>{{Products[product].Name}}</h1><h1>{{Products[product].Price|currency:'EUR'}}</h1></span>
+  <a>PREMIUM HOODIE</a>
+
+  <div class="size-container">
+  <h2>SIZE</h2><br>
+  <mat-button-toggle-group >
+    <mat-button-toggle value="small">S</mat-button-toggle>
+    <mat-button-toggle value="medium">M</mat-button-toggle>
+    <mat-button-toggle value="large">L</mat-button-toggle>
+    <mat-button-toggle value="xlarge">XL</mat-button-toggle>
+  </mat-button-toggle-group><br>
+  <p style="text-decoration: underline;cursor: pointer;">Size guide</p>
+  </div>
+  <div style="display: flex;flex-direction: row;align-items: center;gap: .5rem;margin-top: 3rem;"><button mat-icon-button (click)="removeQuantity()" ><mat-icon>remove</mat-icon></button><span>{{amount}}</span><button mat-icon-button (click)="addQuantity()" ><mat-icon>add</mat-icon></button><button style="flex-grow: 1;" (click)="addtoCart(Products[product].Id)" mat-raised-button>ADD TO CART</button></div>
+  <div style="margin-top: 2rem;display:grid;gap: 3rem;">
+    <mat-expansion-panel  hideToggle>
+      <mat-expansion-panel-header style="padding: 1px;">
+        <mat-panel-title style="display: flex;flex-direction: row;justify-content: space-between;;">
+          <span>PRODUCT DETAILS</span><mat-icon>add</mat-icon>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>100% COTTON<br></p>
+    </mat-expansion-panel>
+    <mat-expansion-panel  hideToggle>
+      <mat-expansion-panel-header style="padding: 1px;">
+        <mat-panel-title style="display: flex;flex-direction: row;justify-content: space-between;;">
+          <span>DELIVERY & RETURNS</span><mat-icon>add</mat-icon>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>ALL RETURNS WITHIN A WEEK AFTER SALE FULLY REFUNDABLE<br></p>
+    </mat-expansion-panel>
+  </div>
+</div>
+</div>
+</div>

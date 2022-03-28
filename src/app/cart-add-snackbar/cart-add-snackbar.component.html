@@ -1,0 +1,9 @@
+<div style="display: flex;flex-direction: row;justify-content: space-evenly;gap: 1rem;">
+<img src="{{product.Img}}" style="height: 150px;width: 115px;">
+<div style="display: flex;flex-direction: column;justify-content: space-between;"><span>{{product.Name}} ADDED TO SHOPPING CART<br>{{product.Price|currency:'EUR'}}</span>
+<div><button mat-button>CHECKOUT</button><button mat-button (click)="_snackRef.dismiss()">CONTINUE SHOPPING</button></div>
+</div>
+
+</div>
+
+

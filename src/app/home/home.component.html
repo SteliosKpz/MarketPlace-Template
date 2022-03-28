@@ -1,0 +1,25 @@
+<div class="home-container">
+    <div class="home-bg">
+      <video  *ngIf="!isMobile()" autoplay muted loop id="myVideo" >
+        <source  type="video/mp4" src="../assets/video/bgvideo.mp4"  >
+          </video>
+          <h1 class="content">SHOP NOW</h1>
+    </div>
+  <div style="display: flex;flex-direction: column;justify-content: center;gap: 25rem;">
+   <div>
+     <h1 style="text-align: center;">NEWEST PRODUCTS</h1>
+     <div style="display:flex;flex-direction: row;flex-wrap: wrap;justify-content: center;gap: 1rem;">
+     <mat-card *ngFor="let product of newProducts">
+     <mat-card-header>{{product.Name}}</mat-card-header>
+     <mat-card-content [routerLink]="['/product']" [queryParams]="{id:product.Id}">
+     <img class="clothing"  src="{{product.Img}}" >
+     </mat-card-content>
+     <mat-card-actions  style="display: flex;flex-direction: row;justify-content: space-between;color: black;align-items: center;"><div>{{product.Price|currency:'EUR'}}</div><button (click)="addProduct(product)" mat-button>ADD TO CART</button></mat-card-actions>
+    </mat-card>
+
+     </div>
+   </div>
+
+  </div>
+</div>
+

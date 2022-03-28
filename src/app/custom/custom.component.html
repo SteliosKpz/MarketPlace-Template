@@ -1,0 +1,19 @@
+<div class="bg-container">
+<div class="contact-overlay">
+<p style="color: white;font-size: 3rem;line-height: 1;text-align: center;">CUSTOMIZED ITEMS FOR YOURSELF OR YOUR BUISNESS</p>
+<h1 class="content" (click)="scrolltoForm()">CONTACT US</h1>
+</div>
+</div>
+<div style="display: flex;justify-content:center;margin-top: 50px;" id="contact-form">
+  <div style="display:flex;flex-direction: column;align-items:flex-start">
+    <mat-form-field appearance="outline"  class="form" >
+      <mat-label>ENTER YOUR EMAIL</mat-label>
+      <input matInput placeholder="youremail@example.com"  required >
+      </mat-form-field>
+      <mat-form-field appearance="outline" color="accent"  class="form">
+        <mat-label>YOUR MESSAGE</mat-label>
+        <textarea matInput style="min-height: 150px;"></textarea>
+      </mat-form-field>
+      <button mat-raised-button>SUMBIT</button>
+  </div>
+</div>
